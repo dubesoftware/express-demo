@@ -52,8 +52,8 @@ app.put('/api/courses/:id', (req, res) => {
     const course = courses.find(c => c.id === parseInt(req.params.id));
     if (!course) return res.status(404).send('The course with the given ID was not found.');
 
-    // Obj destructuring to access error porperty only of return value of validateCourse(n) call
-    const{ error } = validateCourse(req.body);
+    // Obj destructuring to access error property only of return value of validateCourse(n) call
+    const { error } = validateCourse(req.body);
 
     if (error) return res.status(400).send(error.details[0].message);
 
